@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Список</title>
+</head>
+<body>
+<div th:each="person:${mailPerson}">
+    <a th:href="@{/{id}/show (id=${person.getId()})}"
+       th:text="${person.getId()+',  '+ person.getName()+' ,  '+person.getEmail()}">user</a>
+</div>
+<br/>
+<hr/>
+
+<a href="/new">Great new mailAddress</a>
+
+</body>
+</html>
