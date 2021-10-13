@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show</title>
+</head>
+<body>
+<p th:text="${mailAd.getName()}">VALUE</p>
+<p th:text="${'Email: ' + mailAd.getEmail()}">VALUE</p>
+<p th:text="${mailAd.getId()}">VALUE</p>
+
+<a th:href="@{/{id}/edit(id=${mailAd.getId()})}">Edit</a>
+
+<form th:method="POST" th:action="@{/{id}/delete(id=${mailAd.getId()})}">
+    <input type="submit" value="Delete"/>
+</form>
+</body>
+</html>
