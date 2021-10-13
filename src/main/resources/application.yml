@@ -1,0 +1,18 @@
+spring:
+    mail:
+        host: smtp.gmail.com
+        port: 587
+        username: mahard.sev@gmail.com
+        password: 1111
+        properties:
+            mail:
+                smtp:
+                    auth: true
+                    starttls.enable: true
+    datasource:
+        url: jdbc:postgresql://localhost:5432/postgres
+        username: postgres
+        password: PostSQL
+    jpa.generate-ddl: true
+
+interval-in-cron: 0 0 8 * * MON-FRI
