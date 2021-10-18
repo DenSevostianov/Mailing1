@@ -2,6 +2,7 @@ package com.servingwebcontent.controllers;
 
 import com.servingwebcontent.models.MailAd;
 import com.servingwebcontent.repos.MailRepository;
+import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,8 +13,7 @@ import org.springframework.web.bind.annotation.*;
 public class WebController {
 
 
-    //@Autowired
-    //private EmailServiceImpl emailService;
+
 
     @Autowired
     private MailRepository mailRepository;
@@ -40,6 +40,7 @@ public class WebController {
 
     @GetMapping("/{id}/show")
     public String show(@PathVariable("id") int id, Model model){
+        //throws NotFoundException(){
         model.addAttribute("mailAd", mailRepository.findById(id).get());
         return "show";
     }
@@ -53,6 +54,7 @@ public class WebController {
 
     @GetMapping("/{id}/edit")
     public String showEdit(@PathVariable("id") int id, Model model){
+        //throws TodoNotFoundException{
         model.addAttribute("mailAd", mailRepository.findById(id).get());
         return "edit";
     }
@@ -71,15 +73,5 @@ public class WebController {
 
 
 
-    /*@GetMapping(path="/all")
-    public @ResponseBody Iterable<MailAd> getAllUsers() {
-        // This returns a JSON or XML with the users
-        return mailRepository.findAll();
-    }*/
-    /*@GetMapping("/greeting")
-    public String greeting(@RequestParam(name="name", required=false, defaultValue="World")
-                                       String name, Model model){
-        model.addAttribute("name", name);
-        return "greeting";
-    }*/
+
 }
